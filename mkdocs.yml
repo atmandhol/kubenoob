@@ -1,0 +1,47 @@
+site_name: kubenoob
+theme:
+  name: 'material'
+  logo: assets/logo.png
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: amber
+      accent: lime
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: amber
+      accent: indigo
+  features:
+    - navigation.instant
+    - navigation.sections
+    - content.tabs.link
+
+repo_name: atmandhol/kubenoob
+repo_url: https://github.com/atmandhol/kubenoob
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/atmandhol/kubenoob
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - tables
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
