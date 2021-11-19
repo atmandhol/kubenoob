@@ -1,17 +1,21 @@
-# Welcome to MkDocs
+# Welcome to kubenoob
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+kubenoob is set of scratch notes that I make when I learn something related to Kubernetes or any other CNCF projects in general. It is just some markdown based notes for now. I will deploy this somewhere when I have some content in.
 
-## Commands
+## Local Run
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+This docs are using an amazing open source tool called [MkDocs](https://www.mkdocs.org/), and an even more amazing theme for it called [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/). 
 
-## Project layout
+### To run locally
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- Create a python3 virtualenv and then install requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+- Run the local MkDocs server
+
+```bash
+mkdocs serve
+```
