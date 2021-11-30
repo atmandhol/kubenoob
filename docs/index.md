@@ -1,6 +1,6 @@
 # Welcome to kubenoob
 
-kubenoob is set of scratch notes that I make when I learn something related to Kubernetes or any other CNCF projects in general. It is just some markdown based notes for now. I will deploy this somewhere when I have some content in.
+kubenoob is set of scratch notes that I make when I learn something related to Kubernetes or any other CNCF projects in general. There is just so much information on Kubernetes and the Cloud native ecosystem that you will get overwhelmed. This notes serve as an index and bookmarks to all these awesome projects. I will add a ton of links in all these pages that takes you to the official product page. That way, I don't need to keep up with the changes happening in this ecosystem, but I can always consistently find my way around pages I have visited and learned from. All credit goes to the community, I don't take any or claim any of this as my own work.
 
 ## Local Run
 
