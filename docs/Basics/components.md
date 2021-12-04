@@ -13,7 +13,8 @@ Checkout the [Kubernetes Documentation on various components that make a cluster
 Also definitely checkout this excellent and very detailed video by `Nana Janashia` on her Youtube channel `TechWorld with Nana` to learn the basics of Kubernetes and to get started. [YouTube Video Link](https://www.youtube.com/watch?v=X48VuDVv0do&ab_channel=TechWorldwithNana). 
 
 ## What is Kubernetes and why you need it?
-Kubernetes is a container orchestration tool that does 3 things
+Kubernetes is a container orchestration tool that does 3 things.
+
 - High Availability
 - Scalability
 - Disaster Recovery
