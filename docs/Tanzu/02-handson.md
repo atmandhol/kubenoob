@@ -1,11 +1,11 @@
 # Hands-on TCE
 
-## Deploy a Cluster Locally
+## Deploy a Management Cluster Locally
 
 - To Create clusters using TCE, you first need a management cluster. This cluster is then used to bootstrap managed clusters.
 
 ```
-tanzu management-cluster create --ui
+$ tanzu management-cluster create --ui
 ```
 
 - This command launches an installer UI that gives you infrastructure choices on where you want to deploy your management cluster.
@@ -104,11 +104,11 @@ tanzu management-cluster create --ui
 
 - Verify if the management cluster is up and running
 ```
-tanzu management-cluster get
+$ tanzu management-cluster get
 ```
 - You can also use the alias `mc` for management-cluster CLI
 ```
-tanzu mc get
+$ tanzu mc get
 ```
 - As the local installation on Docker uses KinD, you can do `docker ps` and get a list of containers that are running
 ```
@@ -122,3 +122,79 @@ CONTAINER ID   IMAGE                                                         COM
 
 - At this point, your management cluster is up and running and its now time to connect it to your kubectl CLI.
 
+## Connect to the Management Cluster using Kubectl
+
+- Use the `tanzu mc` CLI to get the kubeconfig for the management cluster. Replace `tce-mgmt-cluster` with your cluster name.
+```
+$ tanzu mc kubeconfig get tce-mgmt-cluster --admin
+```
+outputs:
+```
+Credentials of cluster 'tce-mgmt-cluster' have been saved 
+You can now access the cluster by running 'kubectl config use-context tce-mgmt-cluster-admin@tce-mgmt-cluster'
+```
+- Run the command in the output to connect kubectl with the management cluster
+```
+$ kubectl config use-context tce-mgmt-cluster-admin@tce-mgmt-cluster
+```
+outputs
+```
+Switched to context "tce-mgmt-cluster-admin@tce-mgmt-cluster".
+```
+
+??? info "Sample Cluster Config of the Tanzu Management cluster"
+    This guy can be re-used to create workload clusters or managed clusters.
+    ```
+    CLUSTER_CIDR: 100.96.0.0/11
+    CLUSTER_NAME: tce-mgmt-cluster
+    ENABLE_MHC: "false"
+    IDENTITY_MANAGEMENT_TYPE: none
+    INFRASTRUCTURE_PROVIDER: docker
+    LDAP_BIND_DN: ""
+    LDAP_BIND_PASSWORD: ""
+    LDAP_GROUP_SEARCH_BASE_DN: ""
+    LDAP_GROUP_SEARCH_FILTER: ""
+    LDAP_GROUP_SEARCH_GROUP_ATTRIBUTE: ""
+    LDAP_GROUP_SEARCH_NAME_ATTRIBUTE: cn
+    LDAP_GROUP_SEARCH_USER_ATTRIBUTE: DN
+    LDAP_HOST: ""
+    LDAP_ROOT_CA_DATA_B64: ""
+    LDAP_USER_SEARCH_BASE_DN: ""
+    LDAP_USER_SEARCH_FILTER: ""
+    LDAP_USER_SEARCH_NAME_ATTRIBUTE: ""
+    LDAP_USER_SEARCH_USERNAME: userPrincipalName
+    OIDC_IDENTITY_PROVIDER_CLIENT_ID: ""
+    OIDC_IDENTITY_PROVIDER_CLIENT_SECRET: ""
+    OIDC_IDENTITY_PROVIDER_GROUPS_CLAIM: ""
+    OIDC_IDENTITY_PROVIDER_ISSUER_URL: ""
+    OIDC_IDENTITY_PROVIDER_NAME: ""
+    OIDC_IDENTITY_PROVIDER_SCOPES: ""
+    OIDC_IDENTITY_PROVIDER_USERNAME_CLAIM: ""
+    OS_ARCH: ""
+    OS_NAME: ""
+    OS_VERSION: ""
+    SERVICE_CIDR: 100.64.0.0/13
+    TKG_HTTP_PROXY_ENABLED: "false"
+    ```
+
+
+- Run `kubectl get all` and you should see your kubernetes management cluster.
+
+## Create Tanzu managed/workload cluster
+
+- We start by login into our management-cluster of choice. we can use the one we just created. you can do that by `tanzu login`
+
+```
+$ tanzu login
+```
+outputs
+```
+? Select a server tce-mgmt-cluster    ()
+✔  successfully logged in to management cluster using the kubeconfig tce-mgmt-cluster
+```
+
+- Find and copy the yaml file for your management-cluster. in my case, it was under `~/.config/tanzu/tkg/clusterconfigs/`.
+- Update the file as needed for creating a workload cluster.
+- Use the updated file to create a workload cluster.
+
+[Continue Point 17](https://tanzucommunityedition.io/docs/latest/getting-started/)
