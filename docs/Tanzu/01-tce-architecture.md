@@ -31,6 +31,8 @@ Tanzu CLI is the best place to start. It can be invoked with `tanzu` command and
 - When a cluster is told about this package repository (likely via the `tanzu package repository` command), kapp-controller can pull down that repository and make all the packages available to the cluster.
 - `kapp-controller` is installed in the Kubernetes cluster.
 
+![TCE Pieces and where they fit](../../images/tce-platform.png)
+
 ## TCE + BYOI (I is for Infrastructure)
 - How does the managed clusters from TCE integrate with your preferred infrastructure?
 - The Kubernetes image that gets deployed by Tanzu has some smarts in it. I will refer to that Kubernetes image as TKI.
