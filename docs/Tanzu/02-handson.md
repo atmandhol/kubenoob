@@ -197,4 +197,9 @@ outputs
 - Update the file as needed for creating a workload cluster.
 - Use the updated file to create a workload cluster.
 
+
+tanzu config server list
+tanzu config server delete tce-mgmt-cluster
+
+
 [Continue Point 17](https://tanzucommunityedition.io/docs/latest/getting-started/)

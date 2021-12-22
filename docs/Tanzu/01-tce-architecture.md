@@ -39,7 +39,7 @@ Tanzu CLI is the best place to start. It can be invoked with `tanzu` command and
 - `ClusterAPI` is used to create a cluster in the actual infrastructure provider. Supported ones are AWS, Azure, VSphere and Docker (for local stuff).
 - TKI worker nodes have 3 additional special processes that help with the integration.
     - CSI: Container Storage Interface: This driver is responsible for creating and attaching the storage to your kubernetes cluster.
-    - CNI: Container Network Interface: This drivers help with [kubernetes networking](../../Basics/networking/) between pods. TKI comes installed with Antrea and Calico.
+    - CNI: Container Network Interface: This drivers help with [kubernetes networking](../../Basics/02-networking/) between pods. TKI comes installed with Antrea and Calico.
     - CPI: Cloud Provider Interface: for Cloud based Load balancing.
 - TKI comes installed with [External DNS](https://github.com/kubernetes-sigs/external-dns)
 - Its a project that can automatically add DNS records to your DNS provider of your choice as the services are created/destroyed in the TKI based cluster.
