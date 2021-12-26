@@ -1,6 +1,6 @@
 # kubectx
 
-`kubectx` is a tool to switch between contexts (clusters) on kubectl faster.
+[kubectx](https://github.com/ahmetb/kubectx) is a tool to switch between contexts (clusters) on kubectl faster.
 `kubens` is a tool to switch between Kubernetes namespaces (and configure them for kubectl) easily.
 
 ```
@@ -24,3 +24,18 @@ USAGE:
 - I have 2 kubernetes clusters running on my local.
     - First one is a `minikube` cluster. More info on how to [create a minikube cluster here](../../Local-Kubernetes/minikube/).
     - Second one is a `KinD` cluster. More info on how to [create a KinD cluster here](../../Local-Kubernetes/KinD/).
+
+!!! important "Install FZF"
+    fzf is a general-purpose command-line fuzzy finder.
+    Github Repo: [https://github.com/junegunn/fzf](https://github.com/junegunn/fzf).
+    It is installable via `brew`. It makes working with `kubectx` even better.
+
+
+### Demo
+
+- See all contexts and select.
+```
+$ kubectx
+kind-test-cluster
+minikube
+```

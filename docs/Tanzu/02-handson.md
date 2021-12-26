@@ -124,6 +124,8 @@ CONTAINER ID   IMAGE                                                         COM
 
 ## Connect to the Management Cluster using Kubectl
 
+### Official version
+
 - Use the `tanzu mc` CLI to get the kubeconfig for the management cluster. Replace `tce-mgmt-cluster` with your cluster name.
 ```
 $ tanzu mc kubeconfig get tce-mgmt-cluster --admin
@@ -141,6 +143,12 @@ outputs
 ```
 Switched to context "tce-mgmt-cluster-admin@tce-mgmt-cluster".
 ```
+
+### Another way
+
+- Use `kubectx`.
+
+For more info on how to install it, [check here](../../Projects-and-Tools/kubectx/).
 
 ??? info "Sample Cluster Config of the Tanzu Management cluster"
     This guy can be re-used to create workload clusters or managed clusters.
@@ -180,6 +188,15 @@ Switched to context "tce-mgmt-cluster-admin@tce-mgmt-cluster".
 
 - Run `kubectl get all` and you should see your kubernetes management cluster.
 
+!!! info "Dead Management cluster cleanup"
+
+    Local Docker based Tanzu management clusters are based on `KinD`. These clusters cannot survive a docker runtime restart as of yet, and this pollutes the kubeconfig file and tanzu configs with a dead management cluster that cannot be reached. You can remove them as follows:
+
+    ```
+    tanzu config server list
+    tanzu config server delete tce-mgmt-cluster
+    ```
+
 ## Create Tanzu managed/workload cluster
 
 - We start by login into our management-cluster of choice. we can use the one we just created. you can do that by `tanzu login`
@@ -193,13 +210,13 @@ outputs
 ✔  successfully logged in to management cluster using the kubeconfig tce-mgmt-cluster
 ```
 
+
 - Find and copy the yaml file for your management-cluster. in my case, it was under `~/.config/tanzu/tkg/clusterconfigs/`.
 - Update the file as needed for creating a workload cluster.
 - Use the updated file to create a workload cluster.
 
 
-tanzu config server list
-tanzu config server delete tce-mgmt-cluster
+
 
 
 [Continue Point 17](https://tanzucommunityedition.io/docs/latest/getting-started/)

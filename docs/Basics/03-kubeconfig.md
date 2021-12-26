@@ -86,6 +86,13 @@ brew install kubectx
 ```
 More info on usage for `kubectx` is [here](../../Projects-and-Tools/kubectx/).
 
+!!! info "Order of KubeConfig"
+    If you’re using kubectl, here’s the preference that takes effect while determining which kubeconfig file is used.
+
+    - use --kubeconfig flag, if specified
+    - use KUBECONFIG environment variable, if specified
+    - use $HOME/.kube/config file
+
 ## Useful Links
 
 - [Mastering the KUBECONFIG file](https://ahmet.im/blog/mastering-kubeconfig/)
